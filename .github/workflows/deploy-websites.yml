@@ -1,0 +1,38 @@
+name: Deploy Websites
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/websites/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Build websites
+        run: |
+          for website in projects/websites/*/; do
+            if [ -f "$website/package.json" ]; then
+              echo "Building $(basename $website)..."
+              (cd "$website" && npm install && npm run build)
+            fi
+          done
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        run: |
+          for website in projects/websites/*/; do
+            if [ -d "$website/dist" ]; then
+              cd "$website/dist"
+              npx gh-pages -d . -r https://github.com/${{ github.owner }}/${{ github.repo }}.git
+            fi
+          done

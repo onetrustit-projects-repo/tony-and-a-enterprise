@@ -1,0 +1,44 @@
+name: Skills Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/skills/**'
+
+jobs:
+  validate-skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Validate all skills
+        run: |
+          for skill in projects/skills/*/; do
+            echo "Validating $(basename $skill)..."
+            
+            # Check for SKILL.md
+            if [ ! -f "$skill/SKILL.md" ]; then
+              echo "  ✗ Missing SKILL.md"
+              exit 1
+            fi
+            
+            # Check frontmatter
+            if ! grep -q "^---" "$skill/SKILL.md"; then
+              echo "  ✗ Missing frontmatter in SKILL.md"
+              exit 1
+            fi
+            
+            # Run quick validation if available
+            if [ -f "$skill/scripts/quick_validate.py" ]; then
+              python3 "$skill/scripts/quick_validate.py" "$skill"
+            fi
+            
+            echo "  ✓ Valid"
+          done
+          echo "All skills validated!"

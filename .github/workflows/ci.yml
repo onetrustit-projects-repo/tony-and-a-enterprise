@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Validate structure
+        run: |
+          echo "Checking project structure..."
+          ls -la projects/
+          for skill in projects/skills/*/; do
+            if [ -f "$skill/SKILL.md" ]; then
+              echo "✓ $(basename $skill) has SKILL.md"
+            fi
+          done
+
+  test-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Test skill validation
+        run: |
+          for skill in projects/skills/*/; do
+            if [ -f "$skill/scripts/quick_validate.py" ]; then
+              python3 "$skill/scripts/quick_validate.py" "$skill"
+            fi
+          done
+
+  test-websites:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        website: $(find projects/websites -maxdepth 1 -mindepth 1 -type d)
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install and test
+        working-directory: ${{ matrix.website }}
+        run: |
+          npm install
+          npm test
+          npm run build

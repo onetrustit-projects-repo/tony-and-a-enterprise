@@ -1,0 +1,43 @@
+# CODEOWNERS
+
+This file defines who reviews changes to specific parts of the repository.
+
+## Default Owners
+
+* @yourusername  # Default for everything
+
+## Website Projects
+
+projects/websites/** @yourusername
+.github/workflows/deploy-websites.yml @yourusername
+
+## Skills Projects
+
+projects/skills/** @yourusername
+.github/workflows/skills.yml @yourusername
+
+## Automation Projects
+
+projects/automation/** @yourusername
+
+## Library Projects
+
+projects/libraries/** @yourusername
+
+## CI/CD
+
+.github/workflows/** @yourusername
+.github/CODEOWNERS @yourusername
+.github/ACTIONS_SECURITY.md @yourusername
+
+## Documentation
+
+README.md @yourusername
+docs/** @yourusername
+projects/README.md @yourusername
+
+## Security
+
+SECURITY.md @yourusername
+.github/ISSUE_TEMPLATE/security_report.md @yourusername
+.github/ACTIONS_SECURITY.md @yourusername

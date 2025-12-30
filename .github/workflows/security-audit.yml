@@ -1,0 +1,107 @@
+name: Security Audit
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  codeql:
+    name: CodeQL Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: |
+            javascript
+            python
+            typescript
+          queries: security-extended
+      
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
+      
+      - name: Upload Security Results
+        uses: github/codeql-action/upload-results@v3
+        if: always()
+        with:
+          sarif_file: results.sarif
+          category: "/language:${{ matrix.language }}"
+
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          # Fail on critical/high vulnerabilities
+          fail-on-severity: critical
+          # Allow known vulnerabilities with exception
+          license-check: true
+          # Review package.json, requirements.txt, etc.
+          config-file: .github/dependency-review-config.yml
+
+  secret-scanning:
+    name: Secret Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: TruffleHog OSS Scan
+        uses: trufflesecurity/trufflehog@main
+        with:
+          base: main
+          head: HEAD
+          extra_args: --json > results.json || true
+      
+      - name: Check for secrets
+        if: always()
+        run: |
+          if [ -f results.json ] && [ -s results.json ]; then
+            echo "⚠️  Potential secrets found!"
+            cat results.json
+            exit 1
+          else
+            echo "✅ No secrets detected"
+          fi
+
+  trivy-scan:
+    name: Container Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.event.workflow_run.conclusion, 'success')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+      
+      - name: Upload Trivy Results
+        uses: github/codeql-action/upload-results@v3
+        if: always()
+        with:
+          sarif_file: trivy-results.sarif
+          category: 'trivy'

@@ -1,0 +1,26 @@
+# Dependency Review Configuration
+
+# Critical severity will fail the check
+fail-on-severity: critical
+
+# Review licenses
+license-check: true
+
+# Allowed licenses (add your organization's allowed licenses)
+# allowed-licenses:
+#   - MIT
+#   - Apache-2.0
+#   - BSD-3-Clause
+
+# Vulnerability exemptions (CVEs with justification)
+# vulnerability-exceptions:
+#   - CVE-2023-0001
+#     reason: "False positive, under investigation"
+
+# Package ecosystem configurations
+comments:
+  - type: author
+    linked-attribute: email
+
+# Summary mode
+summary: true
