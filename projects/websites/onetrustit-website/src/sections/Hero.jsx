@@ -67,7 +67,7 @@ const Hero = () => {
                     <div className="mt-8 flex items-center justify-start gap-2 text-red-400 bg-red-500/10 py-3 px-6 rounded-full w-fit border border-red-500/20 hover:bg-red-500/20 transition-colors cursor-pointer group">
                         {/* We need to import AlertCircle first, but since this is a replace block, we can just use it if imported. Let's check imports. */}
                         <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                        <span className="font-medium tracking-wide text-sm">Urgent incident? Call <span className="font-bold text-white">1-800-SEC-HELP</span></span>
+                        <span className="font-medium tracking-wide text-sm">Urgent incident? Call <span className="font-bold text-white">1-862-707-6531</span></span>
                     </div>
                 </div>
 
