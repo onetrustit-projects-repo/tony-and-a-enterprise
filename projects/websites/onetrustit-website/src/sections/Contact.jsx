@@ -114,7 +114,7 @@ const Contact = () => {
                                     <input
                                         name="phone"
                                         type="tel"
-                                        placeholder="(555) 123-4567"
+                                        placeholder="(862) 707-6531"
                                         className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
                                         onChange={handleChange}
                                     />
@@ -189,7 +189,7 @@ const Contact = () => {
 
                     <div className="mt-12 flex items-center justify-center gap-2 text-red-400 bg-red-500/10 py-3 px-6 rounded-full w-fit mx-auto border border-red-500/20 hover:bg-red-500/20 transition-colors cursor-pointer group">
                         <AlertCircle className="w-5 h-5 group-hover:animate-pulse" />
-                        <span className="font-medium tracking-wide">For urgent security incidents, call <span className="font-bold text-white">1-800-SEC-HELP</span></span>
+                        <span className="font-medium tracking-wide">For urgent security incidents, call <span className="font-bold text-white">(862) 707-6531</span></span>
                     </div>
                 </div>
             </div>
