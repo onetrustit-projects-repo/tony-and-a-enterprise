@@ -1,7 +1,9 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
 
 const Contact = () => {
+    const { contact } = siteConfig;
     return (
         <div className="bg-gray-50 min-h-screen py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,8 +23,8 @@ const Contact = () => {
                                 <Phone className="text-brand-secondary h-6 w-6 mt-1" />
                                 <div>
                                     <h3 className="font-semibold text-brand-light">Phone</h3>
-                                    <p className="mt-1 text-lg">(908) 251-9749</p>
-                                    <p className="text-sm text-brand-light/60 mt-1">24 Hours, 7 Days a Week</p>
+                                    <p className="mt-1 text-lg">{contact.phone}</p>
+                                    <p className="text-sm text-brand-light/60 mt-1">{contact.hours}</p>
                                 </div>
                             </div>
 
@@ -30,7 +32,7 @@ const Contact = () => {
                                 <Mail className="text-brand-secondary h-6 w-6 mt-1" />
                                 <div>
                                     <h3 className="font-semibold text-brand-light">Email</h3>
-                                    <p className="mt-1 text-lg break-all">contact@tonyandaenterprisellc.net</p>
+                                    <p className="mt-1 text-lg break-all">{contact.email}</p>
                                 </div>
                             </div>
 
@@ -38,7 +40,7 @@ const Contact = () => {
                                 <MapPin className="text-brand-secondary h-6 w-6 mt-1" />
                                 <div>
                                     <h3 className="font-semibold text-brand-light">Address</h3>
-                                    <p className="mt-1 text-lg">380 Park Avenue<br />Orange, NJ 07050</p>
+                                    <p className="mt-1 text-lg">{contact.address.street}<br />{contact.address.city}, {contact.address.state} {contact.address.zip}</p>
                                 </div>
                             </div>
                         </div>

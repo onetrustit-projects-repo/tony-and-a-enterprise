@@ -1,7 +1,9 @@
 import React from 'react';
 import { Truck, Clock, FileCheck, Thermometer, ShieldCheck } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
 
 const MedicalCourier = () => {
+    const { contact } = siteConfig;
     const services = [
         {
             title: "Same Day Delivery",
@@ -129,12 +131,12 @@ const MedicalCourier = () => {
 
             {/* Call to Action */}
             <div className="bg-gray-100 py-16 text-center">
-                <div className="max-w-3xl mx-auto px-4">
+                <div className="max-w-3xl auto px-4">
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Need a Rush Delivery?</h2>
                     <p className="text-lg text-gray-600 mb-8">Call our dispatch team immediately for time-critical requests.</p>
-                    <a href="tel:+19082519749" className="inline-flex items-center px-8 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-dark transition-colors">
+                    <a href={contact.phoneLink} className="inline-flex items-center px-8 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-dark transition-colors">
                         <Truck className="mr-2" size={20} />
-                        Schedule Pickup
+                        Call {contact.phone}
                     </a>
                 </div>
             </div>

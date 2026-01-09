@@ -1,14 +1,18 @@
 import React from 'react';
 import { Award, Heart, CheckCircle } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
 
 const About = () => {
+    const { about } = siteConfig.pages;
+    const { branding } = siteConfig;
+
     return (
         <div className="bg-white min-h-screen">
             {/* Hero */}
             <div className="bg-brand-dark text-white py-24 text-center">
-                <h1 className="text-4xl font-bold mb-4">About Tony & A Enterprise</h1>
+                <h1 className="text-4xl font-bold mb-4">{about.heroTitle}</h1>
                 <p className="text-xl text-brand-light/80 max-w-2xl mx-auto px-4">
-                    Dedicated to excellence in logistics and security. Proudly women-owned and community focused.
+                    {about.heroSubtitle}
                 </p>
             </div>
 
@@ -16,19 +20,15 @@ const About = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <span className="text-brand-primary font-bold tracking-wider text-sm uppercase">Our Story</span>
-                        <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-6">Providing trusted care with heart and dedication</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-6">{about.storyTitle}</h2>
                         <div className="space-y-6 text-gray-600 leading-relaxed">
-                            <p>
-                                In today’s fast-paced world, efficiency and trust are paramount. Tony & A Enterprise was founded to bridge the gap between critical logistics needs and reliable security services.
-                            </p>
-                            <p>
-                                As a <strong className="text-brand-primary">proudly women-owned business</strong>, we bring a unique perspective to the industry—one that values detailed care, communication, and unwavering commitment to our clients. Whether we are transporting sensitive medical specimens or securing a high-profile event, our approach remains the same: <strong>Integrity first.</strong>
-                            </p>
+                            <p>{about.storyP1}</p>
+                            <p>{about.storyP2}</p>
                         </div>
                     </div>
                     <div className="bg-gray-100 rounded-3xl p-8 relative">
                         <div className="absolute -top-6 -right-6 bg-brand-secondary text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-center text-xs p-2 shadow-xl rotate-12">
-                            Women Owned Business
+                            {about.badge}
                         </div>
                         <div className="space-y-6">
                             <div className="flex items-start">

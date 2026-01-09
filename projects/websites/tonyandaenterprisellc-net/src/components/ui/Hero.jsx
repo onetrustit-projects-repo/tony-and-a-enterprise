@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Truck, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { siteConfig } from '../../config/siteConfig';
 
 const Hero = () => {
+    const { hero } = siteConfig.pages.home;
+    const { branding } = siteConfig;
+
     return (
         <div className="relative overflow-hidden bg-gray-900 text-white min-h-[85vh] flex items-center">
             {/* Abstract Background */}
@@ -19,14 +23,14 @@ const Hero = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <span className="inline-block py-1 px-3 rounded-full bg-brand-primary/20 border border-brand-secondary/30 text-brand-light text-sm font-semibold mb-6 tracking-wide">
-                            TRUSTED & SECURE SERVICES
+                            {hero.badge}
                         </span>
                         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                            Delivery with <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-light">Speed</span>.<br />
-                            Security with <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white">Precision</span>.
+                            {hero.titlePrefix} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-light">{hero.titleAccent1}</span>.<br />
+                            {hero.titleMid} <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white">{hero.titleAccent2}</span>.
                         </h1>
                         <p className="mt-6 text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                            Tony & A Enterprise offers premium Medical Courier and Private Security services. Unmatched reliability for your most critical assets.
+                            {branding.description}
                         </p>
                     </motion.div>
 

@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Shield, Truck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { siteConfig } from '../../config/siteConfig';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
 
-    const navLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'Medical Courier', path: '/medical-courier' },
-        { name: 'Private Security', path: '/private-security' },
-        { name: 'About', path: '/about' },
-        { name: 'Contact', path: '/contact' },
-    ];
+    const navLinks = siteConfig.navigation;
+    const { branding } = siteConfig;
 
     const closeMenu = () => setIsOpen(false);
 
@@ -24,9 +20,9 @@ const Navbar = () => {
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link to="/" className="flex items-center space-x-3" onClick={closeMenu}>
-                            <img src="/logo.png" alt="Tony & A Enterprise Logo" className="h-12 w-auto object-contain bg-white rounded-lg p-1" />
+                            <img src={branding.logo} alt={`${branding.name} Logo`} className="h-12 w-auto object-contain bg-white rounded-lg p-1" />
                             <div className="flex flex-col">
-                                <span className="font-bold text-brand-dark text-lg leading-tight">Tony & A</span>
+                                <span className="font-bold text-brand-dark text-lg leading-tight">{branding.shortName}</span>
                                 <span className="text-xs text-brand-secondary font-medium tracking-wider">ENTERPRISE LLC</span>
                             </div>
                         </Link>

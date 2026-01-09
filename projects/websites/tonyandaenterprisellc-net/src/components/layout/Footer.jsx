@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { siteConfig } from '../../config/siteConfig';
 
 const Footer = () => {
+    const { branding, contact } = siteConfig;
     return (
         <footer className="bg-brand-dark text-white pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand Info */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-bold tracking-tight">Tony & A Enterprise</h3>
+                        <h3 className="text-2xl font-bold tracking-tight">{branding.name}</h3>
                         <p className="text-brand-light/80 text-sm leading-relaxed max-w-xs">
-                            Providing fast, secure, and reliable medical courier and private security services. Proudly women-owned and HIPAA certified.
+                            {branding.description}
                         </p>
                         <div className="flex space-x-4 pt-2">
                             <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-brand-primary transition-colors">
@@ -54,15 +56,15 @@ const Footer = () => {
                         <ul className="space-y-4 text-brand-light/80 text-sm">
                             <li className="flex items-start">
                                 <Phone size={18} className="mr-3 mt-0.5 text-brand-secondary flex-shrink-0" />
-                                <span>(908) 251-9749</span>
+                                <span>{contact.phone}</span>
                             </li>
                             <li className="flex items-center">
                                 <Mail size={18} className="mr-3 text-brand-secondary flex-shrink-0" />
-                                <span className="truncate">contact@tonyandaenterprisellc.net</span>
+                                <span className="truncate">{contact.email}</span>
                             </li>
                             <li className="flex items-start">
                                 <MapPin size={18} className="mr-3 mt-0.5 text-brand-secondary flex-shrink-0" />
-                                <span>380 Park Avenue, Orange NJ 07050</span>
+                                <span>{contact.address.street}, {contact.address.city} {contact.address.state} {contact.address.zip}</span>
                             </li>
                         </ul>
                     </div>
@@ -70,7 +72,7 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-light/50">
-                    <p>© {new Date().getFullYear()} Tony & A Enterprise LLC. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} {branding.legalName} All rights reserved.</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
                         <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
                         <Link to="/terms" className="hover:text-white">Terms of Service</Link>

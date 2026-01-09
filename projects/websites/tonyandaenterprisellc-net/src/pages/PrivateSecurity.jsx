@@ -1,7 +1,11 @@
 import React from 'react';
 import { Shield, Lock, Eye, UserCheck } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
 
 const PrivateSecurity = () => {
+    const { contact } = siteConfig;
+    const { security } = siteConfig.pages;
+
     const securityServices = [
         {
             title: "Private Unarmed Security",
