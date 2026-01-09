@@ -30,14 +30,16 @@ const MedicalCourier = () => {
     return (
         <div className="bg-gray-50 min-h-screen">
             {/* Header */}
-            <div className="bg-brand-primary text-white py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
+            <div className="relative overflow-hidden bg-gray-900 text-white py-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-dark to-security-dark opacity-90 z-10" />
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 z-0 mix-blend-overlay" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col md:flex-row items-center gap-8">
                     <div className="bg-white/10 p-4 rounded-2xl backdrop-blur-sm shrink-0">
                         <img src="/logo.png" alt="Tony & A Enterprise" className="h-32 w-auto object-contain bg-white rounded-xl p-2" />
                     </div>
                     <div>
                         <h1 className="text-4xl font-bold mb-4">Medical Courier Services</h1>
-                        <p className="text-xl text-brand-light/80 max-w-2xl">
+                        <p className="text-xl text-gray-300 max-w-2xl">
                             Reliable, HIPAA-compliant transport for the healthcare industry. When lives are on the line, we deliver.
                         </p>
                     </div>
