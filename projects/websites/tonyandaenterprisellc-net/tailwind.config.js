@@ -8,15 +8,15 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#6B46C1', // Purple-600
-          secondary: '#9F7AEA', // Purple-400
-          dark: '#553C9A', // Purple-800
-          light: '#E9D8FD', // Purple-100
+          primary: '#1E3A8A', // Navy Blue
+          secondary: '#3B82F6', // Blue-500
+          dark: '#172554', // Darker Navy
+          light: '#DBEAFE', // Blue-100
         },
         security: {
-          dark: '#1A202C', // Gray-900
-          accent: '#2D3748', // Gray-800
-          metal: '#718096', // Gray-500
+          dark: '#1F2937', // Gray-800
+          accent: '#4B5563', // Gray-600
+          metal: '#9CA3AF', // Gray-400
         }
       },
       fontFamily: {
