@@ -8,12 +8,16 @@ const About = () => {
 
     return (
         <div className="bg-white min-h-screen">
-            {/* Hero */}
-            <div className="bg-brand-dark text-white py-24 text-center">
-                <h1 className="text-4xl font-bold mb-4">{about.heroTitle}</h1>
-                <p className="text-xl text-brand-light/80 max-w-2xl mx-auto px-4">
-                    {about.heroSubtitle}
-                </p>
+            {/* Hero - Dark Gradient Theme */}
+            <div className="relative overflow-hidden bg-gray-900 text-white py-24">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-dark to-security-dark opacity-90 z-10" />
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 z-0 mix-blend-overlay" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
+                    <h1 className="text-4xl font-bold mb-4">{about.heroTitle}</h1>
+                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                        {about.heroSubtitle}
+                    </p>
+                </div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">

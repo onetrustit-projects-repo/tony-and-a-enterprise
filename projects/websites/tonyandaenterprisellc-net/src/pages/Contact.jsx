@@ -5,13 +5,20 @@ import { siteConfig } from '../config/siteConfig';
 const Contact = () => {
     const { contact } = siteConfig;
     return (
-        <div className="bg-gray-50 min-h-screen py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl font-bold text-gray-900">Get in Touch</h1>
-                    <p className="mt-4 text-xl text-gray-600">Request a quote or discuss your logistics and security needs.</p>
+        <div className="bg-gray-50 min-h-screen">
+            {/* Hero - Dark Gradient Theme */}
+            <div className="relative overflow-hidden bg-gray-900 text-white py-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-dark to-security-dark opacity-90 z-10" />
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 z-0 mix-blend-overlay" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
+                    <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
+                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                        Request a quote or discuss your logistics and security needs.
+                    </p>
                 </div>
+            </div>
 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Contact Info */}
                     <div className="bg-brand-dark text-white rounded-3xl p-10 shadow-xl overflow-hidden relative">

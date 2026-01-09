@@ -31,14 +31,16 @@ const PrivateSecurity = () => {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            {/* Header - Darker Theme for Security */}
-            <div className="bg-security-dark text-white py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Header - Dark Gradient Theme */}
+            <div className="relative overflow-hidden bg-gray-900 text-white py-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-dark to-security-dark opacity-90 z-10" />
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 z-0 mix-blend-overlay" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                     <div className="flex items-center space-x-3 mb-4">
                         <Shield className="text-brand-secondary" size={32} />
                         <h1 className="text-4xl font-bold">Private Security Services</h1>
                     </div>
-                    <p className="text-xl text-gray-400 max-w-2xl ml-1">
+                    <p className="text-xl text-gray-300 max-w-2xl ml-1">
                         Professional protection services designed to secure what matters most. Vigilance, Integrity, and Safety.
                     </p>
                 </div>
