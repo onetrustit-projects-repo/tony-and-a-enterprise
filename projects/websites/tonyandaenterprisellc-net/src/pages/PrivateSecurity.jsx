@@ -4,7 +4,7 @@ import { Shield, Lock, Eye, UserCheck } from 'lucide-react';
 const PrivateSecurity = () => {
     const securityServices = [
         {
-            title: "Armed & Unarmed Security",
+            title: "Private Unarmed Security",
             description: "Professional guards tailored to your specific risk profile and needs.",
             icon: Shield
         },

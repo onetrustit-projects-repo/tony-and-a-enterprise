@@ -44,11 +44,52 @@ const Home = () => {
                     />
                     <ServiceCard
                         title="Private Security Services"
-                        description="Professional security personnel for events, asset protection, and site monitoring. Ensuring safety through vigilance and integrity."
+                        description="Professional unarmed security personnel for events, asset protection and site monitoring. Ensuring safety through vigilance and integrity."
                         icon={Shield}
                         path="/private-security"
-                        color="security"
+                        color="secondary"
                     />
+                </div>
+
+                {/* New Home Health Care Section */}
+                <div className="mt-16 bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div className="flex flex-col lg:flex-row">
+                        <div className="lg:w-1/2">
+                            <img
+                                src="/home-health-care.jpg"
+                                alt="Non Medical Home Health Care"
+                                className="w-full h-full object-cover min-h-[400px]"
+                            />
+                        </div>
+                        <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                            <h3 className="text-3xl font-bold text-brand-primary mb-6">Non Medical Home Health Care</h3>
+                            <ul className="space-y-4 text-lg text-gray-700">
+                                <li className="flex items-start">
+                                    <div className="mt-1 mr-4 bg-brand-light p-1 rounded-full text-brand-primary">
+                                        <Award size={20} />
+                                    </div>
+                                    <span>Non Medical Home Care</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <div className="mt-1 mr-4 bg-brand-light p-1 rounded-full text-brand-primary">
+                                        <Users size={20} />
+                                    </div>
+                                    <span>Companion, light Exercise</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <div className="mt-1 mr-4 bg-brand-light p-1 rounded-full text-brand-primary">
+                                        <Clock size={20} />
+                                    </div>
+                                    <span>Meal Prep, Home Cleaning</span>
+                                </li>
+                            </ul>
+                            <div className="mt-10">
+                                <a href="/contact" className="inline-block px-8 py-4 bg-brand-primary text-white font-bold rounded-xl shadow-lg hover:bg-brand-secondary transition-colors">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 

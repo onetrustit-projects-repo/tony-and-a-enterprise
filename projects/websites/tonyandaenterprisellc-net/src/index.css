@@ -3,14 +3,21 @@
 @theme {
   --font-sans: 'Inter', sans-serif;
 
-  --color-brand-primary: #6B46C1;
-  --color-brand-secondary: #9F7AEA;
-  --color-brand-dark: #553C9A;
-  --color-brand-light: #E9D8FD;
+  --color-brand-primary: #1E3A8A;
+  /* Navy Blue */
+  --color-brand-secondary: #3B82F6;
+  /* Bright Blue */
+  --color-brand-dark: #172554;
+  /* Dark Navy */
+  --color-brand-light: #DBEAFE;
+  /* Light Blue */
 
-  --color-security-dark: #1A202C;
-  --color-security-accent: #2D3748;
-  --color-security-metal: #718096;
+  --color-security-dark: #1F2937;
+  /* Gray-800 */
+  --color-security-accent: #4B5563;
+  /* Gray-600 */
+  --color-security-metal: #9CA3AF;
+  /* Gray-400 */
 }
 
 @layer base {
