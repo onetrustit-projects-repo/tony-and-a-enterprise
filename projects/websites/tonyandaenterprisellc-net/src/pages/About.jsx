@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Heart, CheckCircle } from 'lucide-react';
+import { Award, Heart, CheckCircle, Shield, Users, Briefcase } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
 const About = () => {
@@ -60,6 +60,21 @@ const About = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* Management Experience Section */}
+            <div className="bg-brand-light/20 py-16">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div className="flex items-center justify-center gap-3 mb-6">
+                        <div className="bg-brand-primary text-white p-3 rounded-full">
+                            <Briefcase size={28} />
+                        </div>
+                        <h2 className="text-2xl font-bold text-gray-900">Management Experience</h2>
+                    </div>
+                    <p className="text-xl text-gray-700 leading-relaxed">
+                        {about.managementBio}
+                    </p>
                 </div>
             </div>
         </div>

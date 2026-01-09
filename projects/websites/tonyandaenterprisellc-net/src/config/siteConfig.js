@@ -92,9 +92,10 @@ export const siteConfig = {
             heroTitle: "About Tony & A Enterprise",
             heroSubtitle: "Dedicated to excellence in logistics and security. Proudly women-owned and community focused.",
             storyTitle: "Providing trusted care with heart and dedication",
-            storyP1: "In today’s fast-paced world, efficiency and trust are paramount. Tony & A Enterprise was founded to bridge the gap between critical logistics needs and reliable security services.",
+            storyP1: "In today's fast-paced world, efficiency and trust are paramount. Tony & A Enterprise was founded to bridge the gap between critical logistics needs and reliable security services.",
             storyP2: "As a proudly women-owned business, we bring a unique perspective to the industry—one that values detailed care, communication, and unwavering commitment to our clients.",
-            badge: "Women Owned Business"
+            badge: "Women Owned Business",
+            managementBio: "Our management team has over 20 years in Non Medical Home Healthcare and 30 years in Private Security, Management, Loss Prevention, and Concierge experience."
         }
     }
 };
