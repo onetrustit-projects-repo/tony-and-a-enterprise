@@ -7,12 +7,30 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and build output
 node_modules
 dist
 dist-ssr
 *.local
 
-# Editor directories and files
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Admin data — sensitive (bcrypt hashes, metadata)
+admin/data/*.json
+!admin/data/.gitkeep
+
+# Admin uploads — duplicates of canonical images in dist/uploads
+admin/public/uploads/
+public/uploads/
+
+# Test scripts
+admin/test-*.sh
+
+# Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -22,3 +40,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vite cache
+.vite-temp
