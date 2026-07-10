@@ -108,7 +108,7 @@ export const siteConfig = {
                 "All our drivers undergo rigorous training and certification in HIPAA regulations and Bloodborne Pathogens (BBP) handling. We understand the critical nature of medical logistics and ensure the highest standards of safety, privacy, and speed.",
                 "From specimen transport to at-home medical supply delivery, our team treats every package with the care it deserves-as if it were for our own family."
             ],
-            introImage: "/uploads/0b036754-7de6-4ce7-94ef-a22353f46dfa.jpeg",
+            introImage: "/uploads/264d7ac6-6f04-4b83-86e3-8810b23493be.jpg",
             introImageAlt: "Medical courier service",
             solutionsTitle: "Our Courier Solutions",
             solutions: [

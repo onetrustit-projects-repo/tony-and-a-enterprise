@@ -47,7 +47,7 @@ const MedicalCourier = () => {
                         <img
                             src={medicalCourier.introImage}
                             alt={medicalCourier.introImageAlt}
-                            className="rounded-xl shadow-lg w-full h-auto aspect-[4/3] object-cover"
+                            className="rounded-xl shadow-lg w-full h-auto aspect-square object-cover"
                         />
                     </div>
                 </div>

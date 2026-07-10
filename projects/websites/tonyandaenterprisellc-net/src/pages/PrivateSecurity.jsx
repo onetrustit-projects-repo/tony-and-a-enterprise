@@ -43,7 +43,7 @@ const PrivateSecurity = () => {
                             <img
                                 src={privateSecurity.featureImage}
                                 alt={privateSecurity.featureImageAlt}
-                                className="rounded-xl w-full h-auto aspect-[4/3] object-cover"
+                                className="rounded-xl w-full h-auto aspect-square object-cover"
                             />
                             
                         </div>
