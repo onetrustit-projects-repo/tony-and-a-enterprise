@@ -1,0 +1,25 @@
+[Unit]
+Description=Tony & A Enterprise Admin API
+Documentation=https://github.com/onetrustit-projects-repo/tony-and-a-enterprise
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/tonyandaenterprisellc-net/admin
+EnvironmentFile=/var/www/tonyandaenterprisellc-net/admin/.env
+ExecStart=/usr/bin/node /var/www/tonyandaenterprisellc-net/admin/server.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tonyanda-admin
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=read-only
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

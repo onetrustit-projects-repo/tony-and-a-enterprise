@@ -1,0 +1,24 @@
+[Unit]
+Description=PocketBase CMS
+Documentation=https://pocketbase.io/docs/
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/lib/pocketbase
+ExecStart=/var/lib/pocketbase/pb.sh
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=pocketbase
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=read-only
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
