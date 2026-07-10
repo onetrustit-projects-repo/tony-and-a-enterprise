@@ -96,8 +96,6 @@ export const siteConfig = {
             storyP2: "As a proudly women-owned business, we bring a unique perspective to the industry—one that values detailed care, communication, and unwavering commitment to our clients.",
             badge: "Women Owned Business",
             managementBio: "Our management team has over 20 years in Non Medical Home Healthcare and 30 years in Private Security, Management, Loss Prevention, and Concierge experience.",
-            nonMedicalCareImage: "/non-medical-care.jpg",
-            privateSecurityImage: "/private-security.jpg"
         },
         medicalCourier: {
             heroTitle: "Medical Courier Services",

@@ -35,7 +35,7 @@ const Contact = () => {
             } else {
                 throw new Error('Failed to send message');
             }
-        } catch (error) {
+        } catch (_error) {
             // Fallback: show email link if API not configured
             setStatus({ 
                 type: 'info', 

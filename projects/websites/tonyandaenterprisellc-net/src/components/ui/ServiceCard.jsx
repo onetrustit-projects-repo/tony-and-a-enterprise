@@ -8,7 +8,7 @@ const ServiceCard = ({ title, description, icon: Icon, path, color = 'brand' }) 
     const bgColor = isSecurity ? 'bg-security-accent' : 'bg-white';
     const textColor = isSecurity ? 'text-white' : 'text-gray-900';
     const iconColor = isSecurity ? 'text-brand-light' : 'text-brand-primary';
-    const buttonColor = isSecurity ? 'bg-brand-primary hover:bg-brand-light hover:text-brand-dark' : 'bg-brand-primary hover:bg-brand-dark text-white';
+    
 
     return (
         <motion.div
