@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Linkedin, Facebook } from 'lucide-react';
-import { siteConfig } from '../../config/siteConfig';
+import { useSiteContent } from '../../content/SiteContentContext';
 
 const Footer = () => {
-    const { branding, contact } = siteConfig;
+    const { branding, contact } = useSiteContent();
     return (
         <footer className="bg-brand-dark text-white pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

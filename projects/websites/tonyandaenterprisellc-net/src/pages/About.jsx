@@ -1,10 +1,10 @@
 import React from 'react';
 import { Award, Heart, CheckCircle, Shield, Users, Briefcase } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { useSiteContent } from '../content/SiteContentContext';
 
 const About = () => {
-    const { about } = siteConfig.pages;
-    const { branding } = siteConfig;
+    const siteContent = useSiteContent();
+    const { about } = siteContent.pages;
 
     return (
         <div className="bg-white min-h-screen">
@@ -31,7 +31,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="bg-gray-100 rounded-3xl p-8 relative">
-                        <div className="absolute -top-6 -right-6 bg-brand-secondary text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-center text-xs p-2 shadow-xl rotate-12">
+                        <div className="absolute -top-6 -right-6 bg-pink-500 text-white w-24 h-24 rounded-full flex items-center justify-center font-bold text-center text-xs p-2 shadow-xl rotate-12">
                             {about.badge}
                         </div>
                         <div className="space-y-6">

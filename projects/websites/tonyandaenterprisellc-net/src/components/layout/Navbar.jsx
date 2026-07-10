@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Shield, Truck } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { siteConfig } from '../../config/siteConfig';
+import { useSiteContent } from '../../content/SiteContentContext';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
+    const siteContent = useSiteContent();
 
-    const navLinks = siteConfig.navigation;
-    const { branding } = siteConfig;
+    const navLinks = siteContent.navigation;
+    const { branding } = siteContent;
 
     const closeMenu = () => setIsOpen(false);
 

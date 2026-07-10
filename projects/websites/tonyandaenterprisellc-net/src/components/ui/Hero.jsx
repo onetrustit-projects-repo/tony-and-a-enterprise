@@ -2,17 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Truck, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { siteConfig } from '../../config/siteConfig';
+import { useSiteContent } from '../../content/SiteContentContext';
 
 const Hero = () => {
-    const { hero } = siteConfig.pages.home;
-    const { branding } = siteConfig;
+    const siteContent = useSiteContent();
+    const { hero } = siteContent.pages.home;
+    const { branding } = siteContent;
 
     return (
         <div className="relative overflow-hidden bg-gray-900 text-white min-h-[85vh] flex items-center">
             {/* Abstract Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-brand-dark to-security-dark opacity-90 z-10" />
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 z-0 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-cover bg-center opacity-30 z-0 mix-blend-overlay" style={{ backgroundImage: `url(${hero.image})` }} />
 
             {/* Content */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 py-20 flex flex-col lg:flex-row items-center">

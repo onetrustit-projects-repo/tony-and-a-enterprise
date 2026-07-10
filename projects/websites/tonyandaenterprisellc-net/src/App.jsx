@@ -5,19 +5,21 @@ import MedicalCourier from './pages/MedicalCourier';
 import PrivateSecurity from './pages/PrivateSecurity';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
 
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/medical-courier" element={<MedicalCourier />} />
-          <Route path="/private-security" element={<PrivateSecurity />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Layout><Home /></Layout>} />
+        <Route path="/medical-courier" element={<Layout><MedicalCourier /></Layout>} />
+        <Route path="/private-security" element={<Layout><PrivateSecurity /></Layout>} />
+        <Route path="/about" element={<Layout><About /></Layout>} />
+        <Route path="/contact" element={<Layout><Contact /></Layout>} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      </Routes>
     </Router>
   );
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import Hero from '../components/ui/Hero';
 import ServiceCard from '../components/ui/ServiceCard';
-import { Truck, Shield, Clock, Award, Users, AlertCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { siteConfig } from '../config/siteConfig';
+import { Truck, Shield, Clock, Award, Users } from 'lucide-react';
+import { useSiteContent } from '../content/SiteContentContext';
 
 const Home = () => {
-    const { home } = siteConfig.pages;
-    const { contact } = siteConfig;
+    const siteContent = useSiteContent();
+    const { home } = siteContent.pages;
+    const { contact } = siteContent;
 
     return (
         <div className="bg-gray-50">
@@ -94,7 +94,7 @@ const Home = () => {
             <section className="bg-brand-primary py-20">
                 <div className="max-w-4xl mx-auto px-4 text-center text-white">
                     <h2 className="text-3xl font-bold mb-6">Ready to get started?</h2>
-                    <p className="text-xl text-brand-light/90 mb-10">{siteConfig.branding.description}</p>
+                    <p className="text-xl text-brand-light/90 mb-10">{siteContent.branding.description}</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="/contact" className="px-8 py-4 bg-white text-brand-primary font-bold rounded-xl shadow-lg hover:bg-gray-100 transition-colors">
                             Get a Quote Now

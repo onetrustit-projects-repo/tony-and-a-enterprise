@@ -1,47 +1,28 @@
 import React from 'react';
 import { Truck, Clock, FileCheck, Thermometer, ShieldCheck } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { useSiteContent } from '../content/SiteContentContext';
+
+const solutionIcons = [Clock, Truck, FileCheck, Thermometer];
 
 const MedicalCourier = () => {
-    const { contact } = siteConfig;
-    const services = [
-        {
-            title: "Same Day Delivery",
-            description: "Immediate pickup and delivery for urgent medical supplies, specimens, and equipment.",
-            icon: Clock
-        },
-        {
-            title: "Scheduled Routes",
-            description: "Reliable, recurring pickups for laboratories, hospitals, and clinics.",
-            icon: Truck
-        },
-        {
-            title: "Medical Records",
-            description: "Secure transport of sensitive patient files and documents, fully HIPAA compliant.",
-            icon: FileCheck
-        },
-        {
-            title: "Temperature Controlled",
-            description: "Specialized handling for specimens requiring specific temperature ranges.",
-            icon: Thermometer
-        }
-    ];
+    const { contact, branding, pages } = useSiteContent();
+    const { medicalCourier } = pages;
 
     return (
         <div className="bg-gray-50 min-h-screen">
             {/* Header */}
             <div className="relative overflow-hidden bg-gray-900 text-white py-20">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-dark to-security-dark opacity-90 z-10" />
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30 z-0 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-cover bg-center opacity-30 z-0 mix-blend-overlay" style={{ backgroundImage: `url(${medicalCourier.heroImage})` }} />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
                     <div className="flex items-center justify-center gap-4 mb-6">
                         <div className="bg-white/10 p-4 rounded-2xl backdrop-blur-sm">
-                            <img src="/logo.png" alt="Tony & A Enterprise" className="h-24 md:h-32 w-auto object-contain bg-white rounded-xl p-2" />
+                            <img src={branding.logo} alt={branding.name} className="h-24 md:h-32 w-auto object-contain bg-white rounded-xl p-2" />
                         </div>
                     </div>
-                    <h1 className="text-4xl font-bold mb-4">Medical Courier Services</h1>
+                    <h1 className="text-4xl font-bold mb-4">{medicalCourier.heroTitle}</h1>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                        Reliable, HIPAA-compliant transport for the healthcare industry. When lives are on the line, we deliver.
+                        {medicalCourier.heroSubtitle}
                     </p>
                 </div>
             </div>
@@ -54,20 +35,18 @@ const MedicalCourier = () => {
                             <div className="bg-green-100 p-3 rounded-xl text-green-700">
                                 <ShieldCheck size={28} />
                             </div>
-                            <h2 className="text-2xl font-bold text-brand-dark">HIPAA & BBP Certified</h2>
+                            <h2 className="text-2xl font-bold text-brand-dark">{medicalCourier.introTitle}</h2>
                         </div>
-                        <p className="text-gray-600 leading-relaxed mb-6">
-                            All our drivers undergo rigorous training and certification in HIPAA regulations and Bloodborne Pathogens (BBP) handling.
-                            We understand the critical nature of medical logistics and ensure the highest standards of safety, privacy, and speed.
-                        </p>
-                        <p className="text-gray-600 leading-relaxed">
-                            From specimen transport to at-home medical supply delivery, our team treats every package with the care it deserves—as if it were for our own family.
-                        </p>
+                        {medicalCourier.introParagraphs.map((paragraph, index) => (
+                            <p key={index} className={`text-gray-600 leading-relaxed ${index === 0 ? 'mb-6' : ''}`}>
+                                {paragraph}
+                            </p>
+                        ))}
                     </div>
                     <div className="order-1 lg:order-2 h-full">
                         <img
-                            src="/medical-care.jpg"
-                            alt="Compassionate medical care"
+                            src={medicalCourier.introImage}
+                            alt={medicalCourier.introImageAlt}
                             className="rounded-xl shadow-lg w-full h-full object-cover min-h-[300px]"
                         />
                     </div>
@@ -76,56 +55,48 @@ const MedicalCourier = () => {
 
             {/* Service Grid */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-                <h2 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-brand-secondary pl-4">Our Courier Solutions</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-brand-secondary pl-4">{medicalCourier.solutionsTitle}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {services.map((service, index) => (
+                    {medicalCourier.solutions.map((service, index) => {
+                        const Icon = solutionIcons[index % solutionIcons.length];
+                        return (
                         <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                             <div className="w-12 h-12 bg-brand-light/20 text-brand-primary rounded-lg flex items-center justify-center mb-4">
-                                <service.icon size={24} />
+                                <Icon size={24} />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
                             <p className="text-gray-600">{service.description}</p>
                         </div>
-                    ))}
+                    )})}
                 </div>
             </div>
 
             {/* Non-Medical Home Care Section */}
             <div className="bg-white py-20 border-t border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Non-Medical Home Care</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{medicalCourier.homeCareTitle}</h2>
                     <p className="text-xl text-gray-600 mb-12 max-w-3xl">
-                        Compassionate support to help your loved ones maintain independence and quality of life at home.
+                        {medicalCourier.homeCareSubtitle}
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 text-center hover:bg-brand-light/10 transition-colors">
-                            <div className="w-14 h-14 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-md">
-                                ❤️
-                            </div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-2">Companion Care</h3>
-                            <p className="text-gray-600 text-sm">Friendly company, conversation, and emotional support.</p>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                        <div>
+                            <img
+                                src={medicalCourier.homeCareImage}
+                                alt={medicalCourier.homeCareImageAlt}
+                                className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
+                            />
                         </div>
-                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 text-center hover:bg-brand-light/10 transition-colors">
-                            <div className="w-14 h-14 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-md">
-                                🏃
-                            </div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-2">Light Exercise</h3>
-                            <p className="text-gray-600 text-sm">Assistance with mobility and prescribed exercise routines.</p>
-                        </div>
-                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 text-center hover:bg-brand-light/10 transition-colors">
-                            <div className="w-14 h-14 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-md">
-                                🥗
-                            </div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-2">Meal Prep</h3>
-                            <p className="text-gray-600 text-sm">Nutritious meal planning and preparation.</p>
-                        </div>
-                        <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 text-center hover:bg-brand-light/10 transition-colors">
-                            <div className="w-14 h-14 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-md">
-                                🏠
-                            </div>
-                            <h3 className="text-lg font-bold text-gray-900 mb-2">Home Cleaning</h3>
-                            <p className="text-gray-600 text-sm">Light housekeeping to ensure a safe environment.</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            {medicalCourier.homeCareCards.map((card, index) => (
+                                <div key={index} className="bg-gray-50 p-6 rounded-xl border border-gray-100 text-center hover:bg-brand-light/10 transition-colors">
+                                    <div className="w-14 h-14 bg-brand-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold shadow-md">
+                                        {card.emoji}
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{card.title}</h3>
+                                    <p className="text-gray-600 text-sm">{card.description}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -134,8 +105,8 @@ const MedicalCourier = () => {
             {/* Call to Action */}
             <div className="bg-gray-100 py-16 text-center">
                 <div className="max-w-3xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Need a Rush Delivery?</h2>
-                    <p className="text-lg text-gray-600 mb-8">Call our dispatch team immediately for time-critical requests.</p>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">{medicalCourier.ctaTitle}</h2>
+                    <p className="text-lg text-gray-600 mb-8">{medicalCourier.ctaSubtitle}</p>
                     <a href={contact.phoneLink} className="inline-flex items-center px-8 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-dark transition-colors">
                         <Truck className="mr-2" size={20} />
                         Call {contact.phone}
