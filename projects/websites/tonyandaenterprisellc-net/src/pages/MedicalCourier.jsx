@@ -43,11 +43,11 @@ const MedicalCourier = () => {
                             </p>
                         ))}
                     </div>
-                    <div className="order-1 lg:order-2 h-full">
+                    <div className="order-1 lg:order-2 w-full">
                         <img
                             src={medicalCourier.introImage}
                             alt={medicalCourier.introImageAlt}
-                            className="rounded-xl shadow-lg w-full h-full object-cover min-h-[300px]"
+                            className="rounded-xl shadow-lg w-full h-auto aspect-[4/3] object-cover"
                         />
                     </div>
                 </div>
