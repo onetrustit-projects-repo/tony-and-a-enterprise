@@ -39,13 +39,13 @@ const PrivateSecurity = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
                 <div className="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
                     <div className="flex flex-col lg:flex-row">
-                        <div className="lg:w-1/2 relative min-h-[400px]">
+                        <div className="lg:w-1/2">
                             <img
                                 src={privateSecurity.featureImage}
                                 alt={privateSecurity.featureImageAlt}
-                                className="absolute inset-0 w-full h-full object-cover object-top"
+                                className="rounded-xl w-full h-auto aspect-[4/3] object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent lg:hidden" />
+                            
                         </div>
                         <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center text-white">
                             <div className="flex items-center gap-3 mb-6">
