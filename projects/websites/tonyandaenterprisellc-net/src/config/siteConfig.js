@@ -52,7 +52,7 @@ export const siteConfig = {
             },
             homeHealthCare: {
                 title: "Non Medical Home Health Care",
-                image: "/home-health-care.jpg?v=2",
+                image: "/home-health-care.jpg",
                 services: [
                     "Non Medical Home Care",
                     "Companion, light Exercise",

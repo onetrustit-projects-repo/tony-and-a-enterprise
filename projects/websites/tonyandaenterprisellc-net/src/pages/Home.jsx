@@ -44,7 +44,7 @@ const Home = () => {
                             <img
                                 src={home.homeHealthCare.image}
                                 alt={home.homeHealthCare.title}
-                                className="w-full h-full object-cover min-h-[400px]"
+                                className="w-full h-auto aspect-square object-cover rounded-xl shadow-lg"
                             />
                         </div>
                         <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
